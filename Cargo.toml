@@ -1,0 +1,11 @@
+[package]
+name = "altsv"
+version = "0.0.1"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+helix = "0.7.5"
+libcruby-sys = "0.7.5"
