@@ -63,8 +63,21 @@ RSpec.describe Altsv do
 
   describe :load do
     specify 'can load labeled tab separated values from file' do
-      stream = File.open("#{File.dirname(__FILE__)}/test.ltsv")
+      file_dir = File.join(File.dirname(File.dirname(__FILE__)), 'files')
+      stream = File.open("#{file_dir}/test.ltsv")
       expect(Altsv.load(stream)).to \
+        eq [
+                                                   {:label1 => 'value1', :label2 => 'value\\nvalue'},
+                                                   {:label3 => 'value3', :label4 => 'value\\rvalue'},
+                                                   {:label5 => 'value5', :label6 => 'value\\tvalue'},
+                                                   {:label7 => 'value7', :label8 => 'value\\\\value'},
+                                                   {:label9 => 'value9', :label10 => nil, :label11 => 'value11'}
+                                               ]
+    end
+
+    specify 'can load labeled tab separated values from file indicated by the argument' do
+      file_dir = File.join(File.dirname(File.dirname(__FILE__)), 'files')
+      expect(Altsv.load("#{file_dir}/test.ltsv")).to \
         eq [
                                                    {:label1 => 'value1', :label2 => 'value\\nvalue'},
                                                    {:label3 => 'value3', :label4 => 'value\\rvalue'},
