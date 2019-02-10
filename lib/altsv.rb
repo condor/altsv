@@ -19,5 +19,9 @@ class Altsv
         input.each_line.map{|line| parse_line_native line}
       end
     end
+
+    def dump(value)
+      dump_native value
+    end
   end
 end
