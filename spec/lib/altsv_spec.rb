@@ -117,12 +117,7 @@ RSpec.describe Altsv do
     end
 
     specify 'should not fail when object to dump responds to :to_h' do
-      target = Object.new
-      target.instance_eval do
-        def to_h
-          {:label => 'value'}
-        end
-      end
+      target = double(to_h: {:label => 'value'})
       expect(Altsv.dump(target)).to eq "label:value"
     end
 
