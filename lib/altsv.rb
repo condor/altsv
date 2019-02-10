@@ -20,6 +20,17 @@ class Altsv
       end
     end
 
+    def load(path_or_io)
+      case path_or_io
+      when String
+        File.open(path_or_io){|f| parse f}
+      when IO
+        parse(path_or_io)
+      else
+        raise ArgumentError, "#{name}.#{__method__} only accepts IO or path."
+      end
+    end
+
     def dump(value)
       dump_native value
     end
