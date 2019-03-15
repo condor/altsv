@@ -2,6 +2,13 @@
 
 An ALTernative LTSV Parser / Dumper gem partially written in Rust.
 
+## Prerequisites
+
+* rustc (tested with 1.32.0)
+* cargo (The de-fact standard package manager for Rust)
+
+You can install both with [rustup.rs](https://rustup.rs/)
+
 ## Installation
 
 Add this line to your application's Gemfile:
