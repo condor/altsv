@@ -33,6 +33,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.extensions    = %w(ext/altsv/extconf.rb)
 
   spec.add_dependency 'helix_runtime', '~> 0.7.5'
 
